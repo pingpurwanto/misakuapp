@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MisaKu — Misa Terdekat Sekarang</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-cross">✝</span>
+        <span class="logo-text">MisaKu</span>
+      </div>
+      <div class="header-time" id="headerTime">—</div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="app-main">
+
+    <!-- Hero / CTA -->
+    <section class="hero">
+      <h1 class="hero-title">Misa mana yang<br><em>masih bisa kamu kejar?</em></h1>
+      <p class="hero-sub">Izinkan akses lokasi, dan kami tampilkan gereja terdekat dengan jadwal yang belum lewat hari ini.</p>
+      <button class="btn-primary" id="btnLokasi" onclick="minta_lokasi()">
+        <span class="btn-icon">◎</span>
+        Cari Misa Terdekat
+      </button>
+    </section>
+
+    <!-- Status loading / error -->
+    <div id="statusMsg" class="status-msg hidden"></div>
+
+    <!-- Hasil -->
+    <section id="hasilSection" class="hasil-section hidden">
+      <div class="hasil-header">
+        <span id="hasilCount" class="hasil-count"></span>
+        <span id="hasilLokasi" class="hasil-lokasi"></span>
+      </div>
+      <div id="daftarGereja" class="daftar-gereja"></div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <p>Data berdasarkan sumber resmi KAJ · <a href="mailto:awamai@gmail.com?subject=Koreksi%20Jadwal%20MisaKu&body=Nama%20Gereja:%0AJadwal%20yang%20benar:%0A" id="laporkanLink">Laporkan jadwal salah</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

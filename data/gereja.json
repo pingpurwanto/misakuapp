@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "kristoforus-grogol",
+    "nama": "Gereja Santo Kristoforus",
+    "paroki": "Paroki Grogol - Jakarta",
+    "alamat": "Jl. Satria IV No.68 Blok C, RT.12/RW.4, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1642629,
+    "lng": 106.7867422,
+    "telepon": "+62 895-0795-3970",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "18:00"],
+      "minggu": ["06:00", "08:00", "10:00", "18:00"]
+    },
+    "terverifikasi": "April 2026",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Santo%20Kristoforus%2C%20Paroki%20Grogol%20-%20Jakarta&query_place_id=ChIJFYOS7l72aS4RH0EqIvN7w8Y"
+  },
+  {
+    "id": "blokq",
+    "nama": "Gereja Katolik Santa Perawan Maria Ratu",
+    "paroki": "Paroki Blok Q, Kebayoran",
+    "alamat": "Jl. Suryo No.62, RT.1/RW.4, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.2382937,
+    "lng": 106.814594,
+    "telepon": "+62 21 7208640",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:00"],
+      "minggu": ["06:00", "08:00", "10:00", "17:00", "19:30"]
+    },
+    "terverifikasi": "April 2026",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Santa%20Perawan%20Maria%20Ratu%2C%20Paroki%20Blok%20Q%2C%20Kebayoran&query_place_id=ChIJjzYshGDxaS4RPpgvyCgLd6o"
+  },
+  {
+    "id": "polikarpus",
+    "nama": "Gereja Santo Polikarpus",
+    "paroki": "Paroki Grogol - Jakarta",
+    "alamat": "RQQW+HG4, Jl. Dr. Nurdin IV No.5, RT.5/RW.7, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1609832,
+    "lng": 106.7962383,
+    "telepon": "+62 895-0795-3970",
+    "jadwal_reguler": {
+      "senin": ["06:00"],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["17:00"],
+      "minggu": ["06:00"]
+    },
+    "terverifikasi": "April 2026",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Santo%20Polikarpus%2C%20Paroki%20Grogol%20-%20Jakarta&query_place_id=ChIJDTCBECv3aS4R6xEIBXgkQhE"
+  },
+  {
+    "id": "kimtaegon",
+    "nama": "Gereja Katolik Paroki Santo Andreas Kim Tae Gon",
+    "paroki": "Puspa Gading",
+    "alamat": "Jl. Pelangi Indah I No.1, RT.5/RW.2, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1737577,
+    "lng": 106.9162557,
+    "telepon": "+62 21 22457027",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "April 2026",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Andreas%20Kim%20Tae%20Gon%2C%20Puspa%20Gading&query_place_id=ChIJSUN9iCqLaS4RugqUMxLVO_Y"
+  },
+  {
+    "id": "katedral",
+    "nama": "Gereja Katedral Santa Perawan Maria Diangkat ke Surga Jakarta",
+    "paroki": "Katedral",
+    "alamat": "Jl. Katedral No.7B, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1692383,
+    "lng": 106.8333758,
+    "telepon": "+62 21 3519186",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00", "12:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["06:00", "07:30", "09:30", "11:30", "17:00", "19:00"]
+    },
+    "terverifikasi": "April 2026",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katedral%20Santa%20Perawan%20Maria%20Diangkat%20ke%20Surga%20Jakarta&query_place_id=ChIJrSFu-M71aS4RefySRqf97AM"
+  },
+  {
+    "id": "theresia",
+    "nama": "Gereja Katolik Santa Theresia",
+    "paroki": "Paroki Menteng",
+    "alamat": "Jl. Gereja Theresia No.2, RT.8/RW.4, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1889134,
+    "lng": 106.8255417,
+    "telepon": "+62 21 3917708",
+    "jadwal_reguler": {
+      "senin": ["06:00"],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["06:00", "08:00", "10:00", "17:30", "19:30"]
+    },
+    "terverifikasi": "April 2026",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Santa%20Theresia%2C%20Paroki%20Menteng&query_place_id=ChIJ2RAXUyT0aS4RIf3Ff5Jpofs"
+  },
+  {
+    "id": "mbk",
+    "nama": "Gereja Katolik Paroki Maria Bunda Karmel (MBK)",
+    "paroki": "Tomang",
+    "alamat": "Jl. Karmel Raya No.2, RT.9/RW.4, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1903486,
+    "lng": 106.780375,
+    "telepon": "+62 21 5350435",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["06:00", "08:00", "10:00", "17:30", "19:30"]
+    },
+    "terverifikasi": "April 2026",
+    "maps_url": "https://maps.app.goo.gl/2EPdZy92EateMZpA6"
+  },
+  {
+    "id": "paskalis",
+    "nama": "Gereja Katolik Paroki Santo Paskalis",
+    "paroki": "Cempaka Putih",
+    "alamat": "Jl. Letjen Suprapto No.Kav C1/23, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.171945,
+    "lng": 106.8645126,
+    "telepon": "+62 21 4203743",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["06:00", "08:00", "10:00", "17:30", "19:30"]
+    },
+    "terverifikasi": "April 2026",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Paskalis%2C%20Cempaka%20Putih&query_place_id=ChIJfXcyEqv1aS4RWXdvoGcn6QU"
+  },
+  {
+    "id": "salibsuci",
+    "nama": "Gereja Katolik Paroki Salib Suci",
+    "paroki": "Cilincing",
+    "alamat": "Jalan Tugu Raya No.12, RT.3/RW.14, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1259591,
+    "lng": 106.9198224,
+    "telepon": "+62 21 4405740",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "April 2026",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Salib%20Suci%2C%20Cilincing&query_place_id=ChIJKQfLQgQgai4RrcDA74vX5zY"
+  },
+  {
+    "id": "reginacaeli",
+    "nama": "Gereja Katolik Paroki Regina Caeli",
+    "paroki": "Pantai Indah Kapuk (PIK)",
+    "alamat": "Mediterania Boulevard Pantai Indah Kapuk No.1, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1102912,
+    "lng": 106.7655414,
+    "telepon": "+62 21 55964379",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "11:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Regina%20Caeli%2C%20Pantai%20Indah%20Kapuk%20(PIK)&query_place_id=ChIJVc2UgBYdai4Rw5zbFCp6QzQ"
+  },
+  {
+    "id": "mkk-meruya",
+    "nama": "Gereja Katolik Paroki Maria Kusuma Karmel",
+    "paroki": "Meruya",
+    "alamat": "Jl. Kusuma No.1, RT.2/RW.6, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.2087551,
+    "lng": 106.728308,
+    "telepon": "+62 21 5858047",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Maria%20Kusuma%20Karmel%2C%20Meruya&query_place_id=ChIJTV0YnFD3aS4RS-sw7bIvHjs"
+  },
+  {
+    "id": "smdf-toasebio",
+    "nama": "Gereja Katolik Paroki Santa Maria de Fatima",
+    "paroki": "Toasebio - Jakarta",
+    "alamat": "Jl. Kemenangan III No.47 3, RT.3/RW.2, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1438293,
+    "lng": 106.8119456,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "18:00"],
+      "minggu": ["07:00", "09:00", "18:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santa%20Maria%20de%20Fatima%2C%20Toasebio%20-%20Jakarta&query_place_id=ChIJF09HgAb2aS4Rlc9umM4ei_g"
+  },
+  {
+    "id": "aloysius-gonzaga-cijantung",
+    "nama": "Gereja Katolik Paroki St. Aloysius Gonzaga",
+    "paroki": "Cijantung",
+    "alamat": "Jl. Pendidikan III No.2 2, RT.2/RW.6, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.3172003,
+    "lng": 106.8617982,
+    "telepon": "+62 21 8400465",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:00"],
+      "minggu": ["07:00", "09:00", "17:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20St.%20Aloysius%20Gonzaga%2C%20Cijantung&query_place_id=ChIJ2XLfbZ_taS4RzIWFdoC8JYk"
+  },
+  {
+    "id": "ratu-rosari-jagakarsa",
+    "nama": "Gereja Katolik Paroki Ratu Rosari",
+    "paroki": "Jagakarsa",
+    "alamat": "Jl. Desa Putra No.7, RT.3/RW.5, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.3391581,
+    "lng": 106.8278515,
+    "telepon": "+62 21 7863845",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Ratu%20Rosari%2C%20Jagakarsa&query_place_id=ChIJDQ45udLtaS4R8xeoIkffbts"
+  },
+  {
+    "id": "bhk-kemakmuran",
+    "nama": "Gereja Katolik Paroki Bunda Hati Kudus",
+    "paroki": "Kemakmuran",
+    "alamat": "Jl. KH. Hasyim Ashari No.28 3, RT.3/RW.2, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1649239,
+    "lng": 106.8156766,
+    "telepon": "+62 21 6337363",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["06:00", "08:00", "10:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Bunda%20Hati%20Kudus%2C%20Kemakmuran&query_place_id=ChIJhzjHvHf2aS4RprLBmP8Doqk"
+  },
+  {
+    "id": "antonius-padua-bidaracina",
+    "nama": "Gereja Katolik Paroki Santo Antonius Padua",
+    "paroki": "Bidaracina",
+    "alamat": "Jl. Otista Raya No. 76A, Bidaracina, RT.4/RW.5, Kampung Melayu, Jatinegara, Jl. Otista Raya No.76, RT.4/RW.5, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.2366353,
+    "lng": 106.8682583,
+    "telepon": "+62 21 8192305",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "18:00"],
+      "minggu": ["06:00", "08:00", "10:00", "18:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Antonius%20Padua%2C%20Bidaracina&query_place_id=ChIJEexM1XTzaS4RHO9sladRlqs"
+  },
+  {
+    "id": "stella-maris-pluit",
+    "nama": "Gereja Katolik Paroki Stella Maris",
+    "paroki": "Pluit",
+    "alamat": "Jl. Taman Pluit Permai Timur No.17, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1128485,
+    "lng": 106.7917546,
+    "telepon": "+62 21 6691642",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Stella%20Maris%2C%20Pluit&query_place_id=ChIJFfoPqb8dai4R1xrU_tyiy7k"
+  },
+  {
+    "id": "matias-rasul-kosambi",
+    "nama": "Gereja Katolik Paroki Santo Matias Rasul",
+    "paroki": "Kosambi Baru",
+    "alamat": "RPG7+CM8, Jl. Kosambi Selatan Raya Jl. Taman Kosambi Bar. No.120, RT.11/RW.10, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1742464,
+    "lng": 106.7141073,
+    "telepon": "+62 818-0699-9631",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Matias%20Rasul%2C%20Kosambi%20Baru&query_place_id=ChIJ4SEtdi_4aS4R6ZZnmz5fpW8"
+  },
+  {
+    "id": "yohanes-maria-vianney-cilangkap",
+    "nama": "Gereja Katolik Paroki St. Yohanes Maria Vianney",
+    "paroki": "Cilangkap",
+    "alamat": "Jl. Bambu Wulung, RT.5/RW.3, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.3181582,
+    "lng": 106.907234,
+    "telepon": "+62 21 8444893",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:00"],
+      "minggu": ["07:00", "09:00", "17:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20St.%20Yohanes%20Maria%20Vianney%2C%20Cilangkap&query_place_id=ChIJeUr7xjXtaS4RIYr5nvqq8q8"
+  },
+  {
+    "id": "maria-imakulata-kalideres",
+    "nama": "Gereja Katolik Paroki Santa Maria Imakulata",
+    "paroki": "Kalideres",
+    "alamat": "Jl. Satu Maret No.27 1, RT.2/RW.13, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1278389,
+    "lng": 106.7050826,
+    "telepon": "+62 21 29405097",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santa%20Maria%20Imakulata%2C%20Kalideres&query_place_id=ChIJxci3lrwCai4R0fsfRaJCX3c"
+  },
+  {
+    "id": "andreas-kedoya",
+    "nama": "Gereja Katolik Paroki Santo Andreas",
+    "paroki": "Kedoya",
+    "alamat": "Jl. Komp. Green Garden No.1 Blok J5, RT.1/RW.4, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1688123,
+    "lng": 106.7596429,
+    "telepon": "+62 21 5824971",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Andreas%2C%20Kedoya&query_place_id=ChIJUYgu_K_3aS4RgCyPbJku_SE"
+  },
+  {
+    "id": "trinitas-cengkareng",
+    "nama": "Gereja Katolik Paroki Trinitas",
+    "paroki": "Cengkareng",
+    "alamat": "Jl. Utama III No.23, RT.11/RW.3, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1467661,
+    "lng": 106.7251564,
+    "telepon": "+62 21 6193882",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Trinitas%2C%20Cengkareng&query_place_id=ChIJvzdDIvj3aS4RNQhduCDeB1I"
+  },
+  {
+    "id": "philipus-rasul-kapuk",
+    "nama": "Gereja Katolik Paroki Santo Philipus Rasul",
+    "paroki": "Kapuk - Teluk Gong",
+    "alamat": "Jalan Teluk Gong Raya No.19 BC, Jl. Teluk Gong Raya 12, RT.12/RW.10, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1385815,
+    "lng": 106.7794056,
+    "telepon": "+62 21 6683472",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "18:00"],
+      "minggu": ["07:00", "09:00", "18:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Philipus%20Rasul%2C%20Kapuk%20-%20Teluk%20Gong&query_place_id=ChIJIb2mtCn2aS4RRcmR0pbS1Sg"
+  },
+  {
+    "id": "thomas-rasul-bojong-indah",
+    "nama": "Gereja Katolik Paroki Santo Thomas Rasul",
+    "paroki": "Bojong Indah",
+    "alamat": "Jl. Pakis Raya No.20, RT.10/RW.7, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1646442,
+    "lng": 106.7416269,
+    "telepon": "+62 21 5810977",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["06:30", "08:30", "10:30", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Thomas%20Rasul%2C%20Bojong%20Indah&query_place_id=ChIJUW3Rs5b3aS4RurcFoKDq-IU"
+  },
+  {
+    "id": "theresia-lisieux-kebon-jeruk",
+    "nama": "Kapel Katolik Santa Theresia Lisieux",
+    "paroki": "Kebon Jeruk",
+    "alamat": "Jl. Karmel Raya No.48 2, RT.2/RW.4, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1892723,
+    "lng": 106.7807861,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Kapel%20Katolik%20Santa%20Theresia%20Lisieux%2C%20Kebon%20Jeruk&query_place_id=ChIJzdoNFeX2aS4RrgTQK1Ac0QU"
+  },
+  {
+    "id": "goa-maria-regina-caeli",
+    "nama": "Gua Maria Gereja Katolik Paroki Regina Caeli PIK",
+    "paroki": "-",
+    "alamat": "Mediterania Boulevard Pantai Indah Kapuk No.1, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1101438,
+    "lng": 106.765477,
+    "telepon": "+62 21 55967549",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gua%20Maria%20Gereja%20Katolik%20Paroki%20Regina%20Caeli%20PIK&query_place_id=ChIJQyntfEQdai4RNRX_Wl7ec6g"
+  },
+  {
+    "id": "maria-bunda-perantara-cideng",
+    "nama": "Gereja Katolik Paroki Maria Bunda Perantara",
+    "paroki": "Cideng",
+    "alamat": "Jl. Tanah Abang II No.105, RT.1/RW.1, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1762128,
+    "lng": 106.8103959,
+    "telepon": "+62 21 3843784",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "18:00"],
+      "minggu": ["06:00", "08:00", "10:00", "18:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Maria%20Bunda%20Perantara%2C%20Cideng&query_place_id=ChIJ66aKkn32aS4R8TKhzGMQMzs"
+  },
+  {
+    "id": "damai-kristus-kampung-duri",
+    "nama": "Gereja Katolik Paroki Damai Kristus",
+    "paroki": "Kampung Duri",
+    "alamat": "Jl. Duri Selatan V No.29 10, RT.14/RW.2, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1592992,
+    "lng": 106.8045732,
+    "telepon": "+62 21 6303147",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "18:00"],
+      "minggu": ["07:00", "09:00", "18:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Damai%20Kristus%2C%20Kampung%20Duri&query_place_id=ChIJJ_pijm32aS4RyCReuNpmekc"
+  },
+  {
+    "id": "ignatius-loyola-jalan-malang",
+    "nama": "Gereja Katolik Paroki Santo Ignatius Loyola",
+    "paroki": "Jalan Malang - Jakarta",
+    "alamat": "Jl. Latuharhary No.13 8, RT.8/RW.7, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.2055204,
+    "lng": 106.8391091,
+    "telepon": "+62 21 3150924",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["06:00", "08:00", "10:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Ignatius%20Loyola%2C%20Jalan%20Malang%20-%20Jakarta&query_place_id=ChIJVzse6RL0aS4RLG9fapCKuV4"
+  },
+  {
+    "id": "alfonsus-rodriquez-pademangan",
+    "nama": "Gereja Katolik Paroki Santo Alfonsus Rodriquez",
+    "paroki": "Pademangan",
+    "alamat": "Jl. Pademangan Gg. 7 No.1, RT.1/RW.5, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1417502,
+    "lng": 106.8428921,
+    "telepon": "+62 21 64713610",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "18:00"],
+      "minggu": ["07:00", "09:00", "18:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Alfonsus%20Rodriquez%2C%20Pademangan&query_place_id=ChIJ_cM924r1aS4RbZAvBuwn0-g"
+  },
+  {
+    "id": "hati-kudus-kramat",
+    "nama": "Gereja Katolik Hati Kudus",
+    "paroki": "Paroki Kramat",
+    "alamat": "Jl. Kramat Raya No.134, RT.1/RW.9, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1872411,
+    "lng": 106.8435135,
+    "telepon": "+62 21 3909689",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["06:00", "08:00", "10:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Hati%20Kudus%20Paroki%20Kramat&query_place_id=ChIJvfuRNkb0aS4Rrr0garJbR-I"
+  },
+  {
+    "id": "st-carolus-borromeus",
+    "nama": "Kapel St. Carolus Borromeus RS. Sint Carolus",
+    "paroki": "-",
+    "alamat": "RS St. Carolus, Jl. Salemba Raya No.3 5, RT.3/RW.5, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1961309,
+    "lng": 106.8517121,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Kapel%20St.%20Carolus%20Borromeus%20RS.%20Sint%20Carolus&query_place_id=ChIJM4vRIWj0aS4RdfIsclOurQE"
+  },
+  {
+    "id": "kristus-salvator-slipi",
+    "nama": "Gereja Katolik Paroki Kristus Salvator",
+    "paroki": "Slipi",
+    "alamat": "K S. Tubun Raya No.128, RT.2/RW.7, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1966397,
+    "lng": 106.8044539,
+    "telepon": "+62 21 5481844",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "18:00"],
+      "minggu": ["06:00", "08:00", "10:00", "18:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Kristus%20Salvator%2C%20Slipi&query_place_id=ChIJ_3i_g5f2aS4Rm7Ny4TnWAb4"
+  },
+  {
+    "id": "yohanes-bosco-sunter",
+    "nama": "Gereja Katolik Paroki St. Yohanes Bosco",
+    "paroki": "Taman Sunter",
+    "alamat": "Jl. Taman Sunter Indah No.13-21 Blok A3, RT.5/RW.14, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1508854,
+    "lng": 106.875065,
+    "telepon": "+62 21 65300109",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20St.%20Yohanes%20Bosco%2C%20Taman%20Sunter&query_place_id=ChIJT-U5SXL1aS4ReFKBlo5TPCU"
+  },
+  {
+    "id": "kristus-raja-pejompongan",
+    "nama": "Gereja Katolik Paroki Kristus Raja",
+    "paroki": "Pejompongan",
+    "alamat": "Jl. Danau Toba No.56, RT.18/RW.4, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.208201,
+    "lng": 106.809033,
+    "telepon": "+62 21 5734375",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "18:00"],
+      "minggu": ["06:00", "08:00", "10:00", "18:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Kristus%20Raja%2C%20Pejompongan&query_place_id=ChIJkzwha6_2aS4R2nuTBrRB8Kk"
+  },
+  {
+    "id": "yoseph-matraman",
+    "nama": "Gereja Katolik Paroki Santo Yoseph",
+    "paroki": "Matraman",
+    "alamat": "Jl. Matraman Raya No.127 19, RT.19/RW.8, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.2082236,
+    "lng": 106.8593873,
+    "telepon": "+62 21 8506591",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["06:00", "08:00", "10:00", "17:30", "19:00"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Yoseph%2C%20Matraman&query_place_id=ChIJ6d4O7370aS4RHYzipD_WyKQ"
+  },
+  {
+    "id": "lukas-sunter",
+    "nama": "Gereja Katolik Paroki Santo Lukas",
+    "paroki": "Sunter",
+    "alamat": "Jl. Ancol Sel. II No.8 14, RT.5/RW.7, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1322686,
+    "lng": 106.8572763,
+    "telepon": "+62 21 6401373",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Lukas%2C%20Sunter&query_place_id=ChIJFd839gz1aS4RwqedW1mSRug"
+  },
+  {
+    "id": "petrus-paulus-mangga-besar",
+    "nama": "Gereja Katolik Paroki Santo Petrus & Paulus",
+    "paroki": "Mangga Besar",
+    "alamat": "Jl. Raya Mangga Besar No.55 1, RT.1/RW.3, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1489022,
+    "lng": 106.8218658,
+    "telepon": "+62 21 6294867",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": ["06:00"],
+      "rabu": ["06:00"],
+      "kamis": ["06:00"],
+      "jumat": ["06:00"],
+      "sabtu": ["06:00", "17:30"],
+      "minggu": ["07:00", "09:00", "17:30"]
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Paroki%20Santo%20Petrus%20%26%20Paulus%2C%20Mangga%20Besar&query_place_id=ChIJPToibPj1aS4Rrobb_jJF_2Y"
+  },
+  {
+    "id": "kaj",
+    "nama": "Keuskupan Agung Jakarta",
+    "paroki": "-",
+    "alamat": "Jl. Katedral No.7, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1689296,
+    "lng": 106.833002,
+    "telepon": "+62 21 3519193 ext. 231",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Keuskupan%20Agung%20Jakarta&query_place_id=ChIJF9D4AM_1aS4RQh3xL2sL8Bo"
+  },
+  {
+    "id": "kanisius-menteng",
+    "nama": "Kapel Katolik Kanisius",
+    "paroki": "Menteng",
+    "alamat": "Jl. Menteng Raya No.64, RT.3/RW.9, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1853905,
+    "lng": 106.8349643,
+    "telepon": "+62 21 31936464",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Kapel%20Katolik%20Kanisius%2C%20Menteng&query_place_id=ChIJiXiJ440QFAURkfjyNwU2rOM"
+  },
+  {
+    "id": "paroki-pademangan",
+    "nama": "Paroki Pademangan",
+    "paroki": "Pademangan",
+    "alamat": "Jl. Pademangan II No.1, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1432771,
+    "lng": 106.8425091,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Paroki%20Pademangan&query_place_id=ChIJrWnq3oz1aS4RGZDX9Qpl1Wo"
+  },
+  {
+    "id": "faustina-pluit",
+    "nama": "Kapel Katolik Santa Faustina",
+    "paroki": "Pluit",
+    "alamat": "Jl. Pluit Utara Raya No.65 1, RT.7/RW.5, Jkt Utara, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1124525,
+    "lng": 106.7921416,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Kapel%20Katolik%20Santa%20Faustina%2C%20Pluit&query_place_id=ChIJE9HvF78dai4Ry6kSOh8yNQw"
+  },
+  {
+    "id": "ursulin-santa-maria",
+    "nama": "Kapel Katolik Biara Ursulin Santa Maria",
+    "paroki": "-",
+    "alamat": "Jl. Ir. H. Juanda No.29, RT.1/RW.3, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1659639,
+    "lng": 106.8246475,
+    "telepon": "+62 21 3812404",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Kapel%20Katolik%20Biara%20Ursulin%20Santa%20Maria&query_place_id=ChIJJy2pYND1aS4RexQs0cMGBwY"
+  },
+  {
+    "id": "albertus-magnus-atma-jaya",
+    "nama": "Kapel Katolik St. Albertus Magnus",
+    "paroki": "Unika Atma Jaya",
+    "alamat": "Jl. Jenderal Sudirman No.51, RT.5/RW.4, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.2186868,
+    "lng": 106.8153168,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Kapel%20Katolik%20St.%20Albertus%20Magnus%2C%20Unika%20Atma%20Jaya&query_place_id=ChIJR-XMI1XxaS4RmeWuPYewNNM"
+  },
+  {
+    "id": "bunda-maria-penolong-abadi",
+    "nama": "Gereja Katolik Bunda Maria Penolong Abadi",
+    "paroki": "-",
+    "alamat": "RQ62+RJX, Jl. Kembang Elok, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1878761,
+    "lng": 106.751613,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Gereja%20Katolik%20Bunda%20Maria%20Penolong%20Abadi&query_place_id=ChIJo_nYRgD3aS4RDi3rD-91F7M"
+  },
+  {
+    "id": "all-saints-church",
+    "nama": "All Saints Church",
+    "paroki": "-",
+    "alamat": "Jl. Arief Rachman Hakim No.5, RT.1/RW.10, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1830259,
+    "lng": 106.8353895,
+    "telepon": "+62 21 31935283",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=All%20Saints%20Church&query_place_id=ChIJIygmtDb0aS4RfFkujTTxeT4"
+  },
+  {
+    "id": "trinitas-mandarin",
+    "nama": "Kapel Katolik Trinitas - Gereja Katolik berbahasa Mandarin - Jakarta.",
+    "paroki": "-",
+    "alamat": "Jl. Dwiwarna Raya No.3, RT.14/RW.8, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.14895,
+    "lng": 106.830316,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Kapel%20Katolik%20Trinitas%20-%20Gereja%20Katolik%20berbahasa%20Mandarin%20-%20Jakarta.&query_place_id=ChIJoe10WAD1aS4R6MvfH2fW8XA"
+  },
+  {
+    "id": "soverdi-matraman",
+    "nama": "Soverdi Matraman, Biara St. Yosef",
+    "paroki": "-",
+    "alamat": "Jl. Matraman Raya No.125, RT.19/RW.8, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.2081205,
+    "lng": 106.8594336,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Soverdi%20Matraman%2C%20Biara%20St.%20Yosef&query_place_id=ChIJwzm4DBH1aS4RNJT-1m79-XQ"
+  },
+  {
+    "id": "ratu-surga-anggrek",
+    "nama": "Kapel Katolik St. Maria Ratu Surga",
+    "paroki": "-",
+    "alamat": "Jl. Anggrek No.2, RT.4/RW.5, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1577623,
+    "lng": 106.6986885,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Kapel%20Katolik%20St.%20Maria%20Ratu%20Surga&query_place_id=ChIJGTi8QgD5aS4RlZe-cpD_VOE"
+  },
+  {
+    "id": "goa-maria-katedral",
+    "nama": "Goa Maria Katedral",
+    "paroki": "-",
+    "alamat": "Jl. Katedral No.5, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta",
+    "lat": -6.1686873,
+    "lng": 106.8329912,
+    "telepon": "-",
+    "jadwal_reguler": {
+      "senin": [],
+      "selasa": [],
+      "rabu": [],
+      "kamis": [],
+      "jumat": [],
+      "sabtu": [],
+      "minggu": []
+    },
+    "terverifikasi": "Menunggu Laporan Umat",
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Goa%20Maria%20Katedral&query_place_id=ChIJKf64_c71aS4RYuqkReRkMcc"
+  }
+]
