@@ -100,3 +100,10 @@ Format tiap gereja:
 - [ ] Jadwal besok
 - [ ] Filter berdasarkan jam (misal: "saya cuma bisa jam 8-10")
 - [ ] Crowdsource update jadwal
+
+
+## Update Per 9 April 2026, 00:30
+
+- Webapp sudah dideploy dengan vercel (personal first webapp deployment)
+To do next:
+- Update Jadwal agar lebih reliabel (dengan Google Sheets)
