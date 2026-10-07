@@ -1,0 +1,281 @@
+LAPORAN SCRAPE jadwalmisa.id — 7 Oktober 2026
+
+Diperbarui            : 35
+Dikosongkan (sumber kosong): 0
+Tidak diubah (entri tak terbaca): 0
+Tidak ada di jadwalmisa.id     : 2
+
+=== PERLU DICEK ===
+
+[6] Gereja Katolik Santa Perawan Maria Ratu
+  harian        : 06:00  ->  06:00
+  sabtu         : 16:30  ->  16:30
+  minggu        : 07:00, 09:00, 11:00, 16:30, 18:30  ->  07:00, 09:00, 11:00, 16:30, 18:30
+  jumat_pertama : 06:00, 12:00, 18:00  ->  06:00, 12:00, 18:00
+  [CEK] teks tambahan pada jam: "11:00 English Mass" di "Misa Mingguan Hari Minggu" (jam tetap dimasukkan)
+
+[18] Gereja Katolik Paroki Santo Andreas Kim Tae Gon
+  harian        : 06:00  ->  06:00
+  sabtu         : 06:00, 17:30  ->  17:00   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:30  ->  07:00, 10:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  06:00, 19:00   <== BERUBAH
+  [CEK] "Misa Hari Ulang Tahun Perkawinan (Rabu ke-4)" dilewati (misa khusus / tidak rutin tiap minggu) -> 19:00
+  [CEK] teks tambahan pada jam: "19:00 + Adorasi" di "Misa Jumat Pertama" (jam tetap dimasukkan)
+
+[13] Gereja Katolik Santa Theresia
+  harian        : 06:00  ->  07:00, 18:00   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  07:00, 15:30, 18:00   <== BERUBAH
+  minggu        : 06:00, 08:00, 10:00, 17:30, 19:30  ->  06:00, 08:00, 10:00, 15:00, 17:00, 19:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  07:00, 12:00, 18:00, 19:30   <== BERUBAH
+  [CEK] teks tambahan pada jam: "English Mass by St Peter Canisius International Catholic Parish - 19:30" di "Misa Jumat Pertama" (jam tetap dimasukkan)
+  [CEK] teks tambahan pada jam: "English Mass by St Peter Canisius International Catholic Parish - 15:30" di "Misa Sabtu" (jam tetap dimasukkan)
+  [CEK] teks tambahan pada jam: "English Mass by St Peter Canisius International Catholic Parish - 15:00" di "Misa Minggu" (jam tetap dimasukkan)
+
+[77] Gereja Katolik Paroki Maria Bunda Karmel (MBK)
+  harian        : 06:00  ->  06:00
+  sabtu         : 06:00, 17:30  ->  06:00, 16:30, 19:00   <== BERUBAH
+  minggu        : 06:00, 08:00, 10:00, 17:30, 19:30  ->  06:30, 09:00, 11:30, 14:00, 16:30, 19:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  19:00   <== BERUBAH
+  [CEK] teks tambahan pada jam: "09:00 - Stasi Taman Anggrek" di "Misa Minggu" (jam tetap dimasukkan)
+  [CEK] teks tambahan pada jam: "11:30 - Stasi Taman Anggrek" di "Misa Minggu" (jam tetap dimasukkan)
+  [CEK] teks tambahan pada jam: "14:00 - Stasi Taman Anggrek" di "Misa Minggu" (jam tetap dimasukkan)
+
+[12] Gereja Katolik Paroki Santo Paskalis
+  harian        : 06:00  ->  05:30   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  17:00, 18:00   <== BERUBAH
+  minggu        : 06:00, 08:00, 10:00, 17:30, 19:30  ->  07:00, 10:00, 17:00, 20:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  05:30, 12:00, 18:00   <== BERUBAH
+  [CEK] teks tambahan pada jam: "Gereja: 17:00" di "Misa Sabtu" (jam tetap dimasukkan)
+  [CEK] teks tambahan pada jam: "Kapel Lourdes: 18:00" di "Misa Sabtu" (jam tetap dimasukkan)
+
+[78] Gereja Katolik Paroki Salib Suci
+  harian        : 06:00  ->  18:00   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  18:00   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:30  ->  07:00, 09:30, 18:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  (kosong)   <== BERUBAH
+  [CEK] "Misa Minggu (Online)" dilewati (misa khusus / tidak rutin tiap minggu) -> 09:30
+
+[81] Gereja Katolik Paroki Regina Caeli
+  harian        : 06:00  ->  06:30   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  17:00   <== BERUBAH
+  minggu        : 07:00, 09:00, 11:00, 17:30  ->  08:00, 10:30, 15:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  18:00   <== BERUBAH
+  [CEK] "Misa Kerahiman Ilahi (Kamis kedua tiap bulan)" dilewati (misa khusus / tidak rutin tiap minggu) -> 18:00
+  [CEK] "Misa Jumat Terakhir" dilewati (misa khusus / tidak rutin tiap minggu) -> 19:00
+
+[7] Gereja Katolik Paroki Ratu Rosari
+  harian        : 06:00  ->  05:30   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  17:30   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:30  ->  07:00, 07:30, 09:30, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  12:00, 18:00   <== BERUBAH
+  [CEK] jam dari kapel/lokasi lain ikut dimasukkan: "Misa Harian (Kapel Desa Putra)"
+  [CEK] jam dari kapel/lokasi lain ikut dimasukkan: "Misa Jumat Pertama (Kapel Desa Putra)"
+  [CEK] jam dari kapel/lokasi lain ikut dimasukkan: "Misa Sabtu (Kapel Desa Putra)"
+  [CEK] jam dari kapel/lokasi lain ikut dimasukkan: "Misa Minggu (Kapel Desa Putra)"
+  [CEK] jam dari kapel/lokasi lain ikut dimasukkan: "Misa Jumat Pertama (Kapel Bahtera Kasih)"
+  [CEK] jam dari kapel/lokasi lain ikut dimasukkan: "Misa Sabtu (Kapel Bahtera Kasih)"
+  [CEK] jam dari kapel/lokasi lain ikut dimasukkan: "Misa Minggu (Kapel Bahtera Kasih)"
+
+[20] Gereja Katolik Paroki Stella Maris
+  harian        : 06:00  ->  05:55   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  15:00, 17:00   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:30  ->  08:00, 10:30, 15:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  05:55, 12:00, 19:00   <== BERUBAH
+  [CEK] "Hora Sancta/Jam Suci & Misa Kerahiman Ilahi (Kamis sebelum Jumat Pertama)" dilewati (misa khusus / tidak rutin tiap minggu)
+  [CEK] teks tambahan pada jam: "05:55 (Misa Harian)" di "Misa Jumat Pertama" (jam tetap dimasukkan)
+  [CEK] teks tambahan pada jam: "19:00 (Misa & Adorasi Sakramen Mahakudus)" di "Misa Jumat Pertama" (jam tetap dimasukkan)
+  [lewati] "Adorasi Sakramen Maha Kudus (Jumat Pertama di Kapel St. Faustina)" dilewati (bukan misa) -> 06:30
+  [info] misa bahasa Inggris/Mandarin ikut dimasukkan: "English Mass (Sabtu)"
+  [info] misa bahasa Inggris/Mandarin ikut dimasukkan: "Misa Mandarin (Minggu)"
+
+[75] Gereja Katolik Paroki Santo Matias Rasul
+  harian        : 06:00  ->  (kosong)   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  06:00, 17:00   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:30  ->  06:30, 09:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  (kosong)   <== BERUBAH
+  [CEK] 06:00 di "Misa Harian (Selasa, Kamis, dan Sabtu)" hanya berlaku Selasa, Kamis -> tidak dimasukkan ke harian
+  [CEK] 19:00 di "Misa Harian (Senin, Rabu, dan Jumat)" hanya berlaku Senin, Rabu, Jumat -> tidak dimasukkan ke harian
+
+[84] Gereja Katolik Paroki St. Yohanes Maria Vianney
+  harian        : 06:00  ->  05:45   <== BERUBAH
+  sabtu         : 06:00, 17:00  ->  05:45   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:00  ->  06:30, 09:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  19:00   <== BERUBAH
+  [CEK] "Misa Sabtu (Lansia)" dilewati (misa khusus / tidak rutin tiap minggu) -> 17:00
+
+[72] Gereja Katolik Paroki Santa Maria Imakulata
+  harian        : 06:00  ->  (kosong)   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  17:00   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:30  ->  06:30, 10:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  19:00   <== BERUBAH
+  [CEK] 05:45 di "Misa Harian (Senin - Kamis)" hanya berlaku Senin, Selasa, Rabu, Kamis -> tidak dimasukkan ke harian
+  [CEK] jam dari kapel/lokasi lain ikut dimasukkan: "Misa Harian (Jumat di Kapel)"
+  [CEK] 19:00 di "Misa Harian (Jumat di Kapel)" hanya berlaku Jumat -> tidak dimasukkan ke harian
+  [CEK] "Misa Sabtu Pertama (Di Kapel)" dilewati (misa khusus / tidak rutin tiap minggu) -> 05:45
+  [CEK] "Misa Arwah Bulanan (Jumat Ketiga di Gereja)" dilewati (misa khusus / tidak rutin tiap minggu) -> 19:00
+
+[70] Gereja Katolik Paroki Trinitas
+  harian        : 06:00  ->  (kosong)   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  17:00   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:30  ->  06:30, 09:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  19:00   <== BERUBAH
+  [CEK] 05:45 di "Misa Harian (Senin - Kamis)" hanya berlaku Senin, Selasa, Rabu, Kamis -> tidak dimasukkan ke harian
+
+[73] Gereja Katolik Paroki Santo Philipus Rasul
+  harian        : 06:00  ->  06:00
+  sabtu         : 06:00, 18:00  ->  06:00, 18:00
+  minggu        : 07:00, 09:00, 18:00  ->  08:30, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  19:00   <== BERUBAH
+  [CEK] jam tidak terbaca: "Selasa Minggu 1 & 3 Pk:19:00" di "Misa Harian (Senin - Sabtu)"
+
+[69] Gereja Katolik Paroki Santo Thomas Rasul
+  harian        : 06:00  ->  (kosong)   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  06:00, 16:00, 17:00   <== BERUBAH
+  minggu        : 06:30, 08:30, 10:30, 17:30  ->  06:00, 08:30, 11:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  05:45, 12:00, 19:00   <== BERUBAH
+  [CEK] 06:00 di "Misa Harian (Senin hingga Sabtu)" hanya berlaku Senin -> tidak dimasukkan ke harian
+  [CEK] teks tambahan pada jam: "17:00 (ND)" di "Misa Minggu (Sabtu Sore)" (jam tetap dimasukkan)
+  [CEK] teks tambahan pada jam: "08:30 (ND)" di "Misa Minggu" (jam tetap dimasukkan)
+  [CEK] teks tambahan pada jam: "11:00 (ND)" di "Misa Minggu" (jam tetap dimasukkan)
+
+[65] Gereja Katolik Paroki Damai Kristus
+  harian        : 06:00  ->  (kosong)   <== BERUBAH
+  sabtu         : 06:00, 18:00  ->  18:00   <== BERUBAH
+  minggu        : 07:00, 09:00, 18:00  ->  06:30, 09:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  (kosong)   <== BERUBAH
+  [CEK] 06:00 di "Misa Harian (Selasa - Jumat)" hanya berlaku Selasa, Rabu, Kamis, Jumat -> tidak dimasukkan ke harian
+
+[63] Gereja Katolik Paroki Santo Ignatius Loyola
+  harian        : 06:00  ->  06:00
+  sabtu         : 06:00, 17:30  ->  17:00   <== BERUBAH
+  minggu        : 06:00, 08:00, 10:00, 17:30  ->  07:00, 09:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  18:00   <== BERUBAH
+  [CEK] "Misa Minggu ABK (Tiap Minggu ke 4)" dilewati (misa khusus / tidak rutin tiap minggu) -> 11:00
+
+[80] Gereja Katolik Paroki Santo Alfonsus Rodriquez
+  harian        : 06:00  ->  05:45   <== BERUBAH
+  sabtu         : 06:00, 18:00  ->  05:45, 17:00   <== BERUBAH
+  minggu        : 07:00, 09:00, 18:00  ->  07:00, 09:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  (kosong)   <== BERUBAH
+  [info] misa bahasa Inggris/Mandarin ikut dimasukkan: "Misa Mandarin (Minggu)"
+  [CEK] jam bersyarat dilewati: "Minggu ke-1 dan ke-3 - 11:00" di "Misa Mandarin (Minggu)"
+
+[16] Gereja Katolik Hati Kudus
+  harian        : 06:00  ->  (kosong)   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  17:00   <== BERUBAH
+  minggu        : 06:00, 08:00, 10:00, 17:30  ->  07:00, 09:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  (kosong)   <== BERUBAH
+  [CEK] 18:00 di "Misa Harian (Senin, Rabu, Kamis, Jumat)" hanya berlaku Senin, Rabu, Kamis, Jumat -> tidak dimasukkan ke harian
+  [lewati] "Novena St Antonius Padua (Selasa)" dilewati (bukan misa) -> 13:00, 16:00, 19:00
+
+[17] Gereja Katolik Paroki Santo Petrus & Paulus
+  harian        : 06:00, 18:00  ->  06:00, 18:00
+  sabtu         : 06:00, 17:00  ->  06:00, 17:00
+  minggu        : 07:30, 10:00, 17:00  ->  07:30, 10:00, 17:00
+  jumat_pertama : 18:00  ->  (kosong)   <== BERUBAH
+  [CEK] teks tambahan pada jam: "06:00 (Misa Harian)" di "Misa Sabtu" (jam tetap dimasukkan)
+
+[900001] Kapel Katolik Santa Theresia Lisieux
+  Tidak ada di jadwalmisa.id -> tidak diubah
+
+[900002] Gua Maria Gereja Katolik Paroki Regina Caeli PIK
+  Tidak ada di jadwalmisa.id -> tidak diubah
+
+=== LAINNYA ===
+
+[71] Gereja Santo Kristoforus
+  harian        : 05:30  ->  05:30
+  sabtu         : 16:30  ->  16:30
+  minggu        : 07:00, 10:00, 16:30  ->  07:00, 10:00, 16:30
+  jumat_pertama : 05:30, 19:00  ->  05:30, 19:00
+
+[614] Gereja Santo Polikarpus
+  harian        : 06:00  ->  06:00
+  sabtu         : 17:00  ->  17:00
+  minggu        : 06:00  ->  06:00, 08:30, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  06:00, 19:00   <== BERUBAH
+
+[11] Gereja Katedral Santa Perawan Maria Diangkat ke Surga Jakarta
+  harian        : 06:00  ->  06:00, 18:00   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  06:00, 16:00, 18:00   <== BERUBAH
+  minggu        : 06:00, 07:30, 09:30, 11:30, 17:00, 19:00  ->  06:00, 08:30, 11:00, 16:30, 19:00   <== BERUBAH
+  jumat_pertama : 06:00, 12:00  ->  06:00, 12:00, 18:00   <== BERUBAH
+  [lewati] "Pengakuan Dosa (Setiap Hari Jumat)" dilewati (bukan misa) -> 16:00
+
+[76] Gereja Katolik Paroki Maria Kusuma Karmel
+  harian        : 06:00  ->  05:30   <== BERUBAH
+  sabtu         : 06:00, 17:30  ->  05:30, 16:30   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:30  ->  06:00, 08:30, 11:00, 16:30   <== BERUBAH
+  jumat_pertama : 06:00  ->  19:30   <== BERUBAH
+
+[68] Gereja Katolik Paroki Santa Maria de Fatima
+  harian        : 06:00  ->  06:00
+  sabtu         : 06:00, 18:00  ->  06:00, 18:00
+  minggu        : 07:00, 09:00, 18:00  ->  07:30, 09:30, 16:00, 18:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  18:30   <== BERUBAH
+  [info] misa bahasa Inggris/Mandarin ikut dimasukkan: "Misa Minggu (Mandarin Mass)"
+
+[83] Gereja Katolik Paroki St. Aloysius Gonzaga
+  harian        : 06:00  ->  06:00
+  sabtu         : 06:00, 17:00  ->  18:00   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:00  ->  06:00, 08:00, 18:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  (kosong)   <== BERUBAH
+
+[66] Gereja Katolik Paroki Bunda Hati Kudus
+  harian        : 06:00  ->  06:00
+  sabtu         : 06:00, 17:30  ->  06:00, 17:00   <== BERUBAH
+  minggu        : 06:00, 08:00, 10:00, 17:30  ->  07:00, 09:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  06:00, 12:00, 18:00   <== BERUBAH
+
+[82] Gereja Katolik Paroki Santo Antonius Padua
+  harian        : 06:00  ->  05:45, 18:00   <== BERUBAH
+  sabtu         : 06:00, 18:00  ->  16:30   <== BERUBAH
+  minggu        : 06:00, 08:00, 10:00, 18:00  ->  06:00, 08:00, 10:00, 16:30, 18:30   <== BERUBAH
+  jumat_pertama : 06:00  ->  05:45, 18:00   <== BERUBAH
+
+[74] Gereja Katolik Paroki Santo Andreas
+  harian        : 06:00  ->  06:00
+  sabtu         : 06:00, 17:30  ->  16:30   <== BERUBAH
+  minggu        : 07:00, 09:00, 17:30  ->  06:00, 08:30, 11:00, 16:30   <== BERUBAH
+  jumat_pertama : 06:00  ->  06:00, 12:00, 19:30   <== BERUBAH
+
+[64] Gereja Katolik Paroki Maria Bunda Perantara
+  harian        : 06:00  ->  06:00
+  sabtu         : 06:00, 18:00  ->  06:00, 17:00   <== BERUBAH
+  minggu        : 06:00, 08:00, 10:00, 18:00  ->  06:00, 09:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  06:00, 12:00, 18:30   <== BERUBAH
+  [info] misa bahasa Inggris/Mandarin ikut dimasukkan: "English Mass (Minggu)"
+
+[67] Gereja Katolik Paroki Kristus Salvator
+  harian        : 06:00  ->  06:00
+  sabtu         : 06:00, 18:00  ->  06:00, 17:00   <== BERUBAH
+  minggu        : 06:00, 08:00, 10:00, 18:00  ->  06:30, 09:00, 17:00   <== BERUBAH
+  jumat_pertama : 06:00  ->  (kosong)   <== BERUBAH
+
+[2] Gereja Katolik Paroki St. Yohanes Bosco
+  harian        : 06:00, 18:00  ->  06:00, 18:00
+  sabtu         : 17:00  ->  17:00
+  minggu        : 06:00, 08:00, 18:00  ->  06:00, 08:00, 10:30, 18:00   <== BERUBAH
+  jumat_pertama : 06:00, 18:00  ->  06:00, 18:00
+  [info] misa bahasa Inggris/Mandarin ikut dimasukkan: "English Mass (Minggu)"
+
+[15] Gereja Katolik Paroki Kristus Raja
+  harian        : 06:00  ->  06:00
+  sabtu         : 17:30  ->  06:00, 17:30   <== BERUBAH
+  minggu        : 07:00, 09:00, 11:30  ->  07:00, 09:00, 11:30
+  jumat_pertama : 18:00  ->  18:00
+
+[88] Gereja Katolik Paroki Santo Yoseph
+  harian        : 05:45  ->  05:45
+  sabtu         : 17:00  ->  17:00
+  minggu        : 06:30, 08:30, 18:00  ->  06:30, 08:30, 18:00
+  jumat_pertama : 12:00, 18:00  ->  12:00, 18:00
+
+[3] Gereja Katolik Paroki Santo Lukas
+  harian        : 06:00  ->  06:00
+  sabtu         : 17:00  ->  06:00, 17:00   <== BERUBAH
+  minggu        : 06:00, 08:30, 11:00, 17:00  ->  06:00, 08:30, 11:00, 17:00
+  jumat_pertama : 18:30  ->  18:30
+  [lewati] "Novena Santo Fransiskus Assisi" dilewati (bukan misa) -> 19:00, 19:00, 17:00, 17:00, 19:00, 19:00, 19:00, 19:00, 18:30
+  [lewati] "Perayaan Ekaristi Pesta Santo Fransiskus Assisi" dilewati (bukan misa) -> 11:00
+  [lewati] "Ibadat Pemberkatan Hewan" dilewati (bukan misa) -> 14:00
