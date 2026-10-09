@@ -329,3 +329,20 @@ body {
   margin-bottom: 8px;
 }
 .empty-sub { font-size: 14px; line-height: 1.6; }
+
+.misa-bahasa-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.badge-bahasa {
+  font-size: 11px;
+  font-weight: 600;
+  color: #2F4E7A;
+  background: #EEF3FA;
+  border: 1px solid #C9D8EE;
+  border-radius: 20px;
+  padding: 4px 10px;
+}

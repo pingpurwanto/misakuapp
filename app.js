@@ -1,9 +1,10 @@
 /* ============================================
    MisaKu — app.js
-   Logic: geolokasi, filter jadwal, hitung jarak, render kartu
+   Logic: geolokasi, filter jadwal per hari, misa bahasa asing, hitung jarak, render kartu
    ============================================ */
 
    const MAX_HASIL = 5;
+   const NAMA_HARI = ['minggu', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu']; // index = getDay()
    let gereja_data = [];
    
    /* ---- INIT ---- */
@@ -66,24 +67,44 @@
      btn.querySelector('.btn-icon').textContent = '◎';
    }
    
-   /* ---- GET JADWAL HARI INI (STRUKTUR BARU) ---- */
+   /* ---- MINGGU KE- DALAM BULAN (1–5) ---- */
+   function minggu_ke(now) {
+     return Math.ceil(now.getDate() / 7);
+   }
+   
+   /* ---- JADWAL REGULER HARI INI ---- */
    function get_jadwal_hari_ini(jadwal, now) {
      if (!jadwal) return [];
-     const hari = now.getDay(); // 0 = Minggu, 1 = Senin, ..., 6 = Sabtu
-     const tanggal = now.getDate();
+     const hari = NAMA_HARI[now.getDay()];
    
-     if (hari === 0) return jadwal.minggu || [];
-     if (hari === 6) return jadwal.sabtu || [];
-   
-     // Cek apakah hari ini Jumat dan masuk minggu pertama (tanggal 1-7)
-     if (hari === 5 && tanggal <= 7) {
-       return (jadwal.jumat_pertama && jadwal.jumat_pertama.length > 0) 
-         ? jadwal.jumat_pertama 
-         : (jadwal.harian || []);
+     // Jumat pertama (tanggal 1–7) memakai jadwal khusus, kalau ada
+     if (hari === 'jumat' && minggu_ke(now) === 1 && (jadwal.jumat_pertama || []).length > 0) {
+       return jadwal.jumat_pertama;
      }
+     return jadwal[hari] || [];
+   }
    
-     // Senin - Kamis, atau Jumat biasa (minggu ke-2 dst)
-     return jadwal.harian || [];
+   /* ---- MISA BAHASA ASING HARI INI ---- */
+   function get_misa_bahasa_hari_ini(lain, now) {
+     if (!Array.isArray(lain)) return [];
+     const hari = NAMA_HARI[now.getDay()];
+     const minggu = minggu_ke(now);
+   
+     return lain.filter(o => {
+       if (!['misa_bahasa', 'adorasi'].includes(o.jenis) || o.hari !== hari) return false;
+   
+       const ket = (o.keterangan || '').toLowerCase();
+       if (!ket) return true;
+   
+       // "Minggu ke-1 dan ke-3" -> hanya tampil di minggu 1 dan 3
+       const angka = [...ket.matchAll(/ke-?\s?(\d)/g)].map(m => Number(m[1]));
+       if (angka.length) return angka.includes(minggu);
+   
+       // "Jumat Pertama" -> hanya minggu pertama
+       if (ket.includes('pertama')) return minggu === 1;
+   
+       return true;
+     });
    }
    
    /* ---- PROSES LOKASI ---- */
@@ -91,22 +112,21 @@
      const now = new Date();
      const jam_sekarang_menit = now.getHours() * 60 + now.getMinutes();
    
-     // Hitung jarak ke semua gereja dan pasangkan jadwal yang benar
      const dengan_jarak = gereja_data.map(g => ({
        ...g,
        jarak_km: hitung_jarak(lat, lng, g.lat, g.lng),
-       jadwal_hari_ini: get_jadwal_hari_ini(g.jadwal_reguler, now)
+       jadwal_hari_ini: get_jadwal_hari_ini(g.jadwal_reguler, now),
+       bahasa_hari_ini: get_misa_bahasa_hari_ini(g.jadwal_lain, now),
      }));
    
-     // Urutkan berdasarkan jarak terdekat
      dengan_jarak.sort((a, b) => a.jarak_km - b.jarak_km);
    
-     // Filter jadwal tetap dipertahankan sesuai aslinya
+     // Tampilkan gereja yang punya misa hari ini (Indonesia atau bahasa asing)
      const hasil = dengan_jarak
-       .filter(g => g.jadwal_hari_ini.length > 0)
+       .filter(g => g.jadwal_hari_ini.length > 0 || g.bahasa_hari_ini.length > 0)
        .slice(0, MAX_HASIL);
    
-     // Kalau tidak ada yang punya jadwal, tampilkan 5 terdekat saja
+     // Kalau tidak ada yang punya misa hari ini, tampilkan 5 terdekat saja
      const tampil = hasil.length > 0 ? hasil : dengan_jarak.slice(0, MAX_HASIL);
    
      render_hasil(tampil, jam_sekarang_menit, lat, lng);
@@ -141,7 +161,6 @@
      const misa_menit = h * 60 + m;
      const selisih = misa_menit - jam_sekarang_menit;
    
-     if (selisih < -60) return 'lewat';      // sudah lebih dari 1 jam lalu
      if (selisih < 0) return 'lewat';        // sudah lewat
      if (selisih <= 30) return 'segera';     // dalam 30 menit ke depan
      return 'bisa';                          // masih bisa dikejar
@@ -157,15 +176,7 @@
      section.classList.remove('hidden');
      daftar.innerHTML = '';
    
-     // Cek apakah ada yang bisa dikejar
-     const ada_yang_bisa = data.some(g =>
-       g.jadwal_hari_ini.some(j => status_jadwal(j, jam_sekarang_menit) !== 'lewat')
-     );
-   
-     count.textContent = ada_yang_bisa
-       ? `${data.length} gereja terdekat`
-       : `${data.length} gereja terdekat`;
-   
+     count.textContent = `${data.length} gereja terdekat`;
      lokasi_el.textContent = `±${format_jarak(data[0]?.jarak_km || 0)} dari kamu`;
    
      if (data.length === 0) {
@@ -183,7 +194,6 @@
        daftar.appendChild(kartu);
      });
    
-     // Scroll ke hasil
      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
    }
    
@@ -192,19 +202,40 @@
      const div = document.createElement('div');
      div.className = 'kartu-gereja';
    
-     // Jadwal chips
      let chips_html = '';
-     if (g.jadwal_hari_ini.length === 0) {
+     if (g.jadwal_hari_ini.length === 0 && g.bahasa_hari_ini.length === 0) {
        chips_html = '<span class="no-misa">Tidak ada misa hari ini</span>';
      } else {
-       const sorted = [...g.jadwal_hari_ini].sort();
-       chips_html = '<div class="jadwal-wrap">';
-       sorted.forEach(jam => {
-         const status = status_jadwal(jam, jam_sekarang_menit);
-         const label = status === 'segera' ? `${jam} ⚡` : jam;
-         chips_html += `<span class="jadwal-chip ${status}"><span class="chip-dot"></span>${label}</span>`;
-       });
-       chips_html += '</div>';
+       // Jam yang sudah tampil sebagai badge tidak diulang sebagai chip biasa
+       const jam_ber_badge = new Set(g.bahasa_hari_ini.map(o => o.jam));
+       const jam_biasa = g.jadwal_hari_ini.filter(jam => !jam_ber_badge.has(jam));
+   
+       // Misa Indonesia (jadwal reguler)
+       if (jam_biasa.length > 0) {
+         chips_html += '<div class="jadwal-wrap">';
+         [...jam_biasa].sort().forEach(jam => {
+           const status = status_jadwal(jam, jam_sekarang_menit);
+           const label = status === 'segera' ? `${jam} ⚡` : jam;
+           chips_html += `<span class="jadwal-chip ${status}"><span class="chip-dot"></span>${label}</span>`;
+         });
+         chips_html += '</div>';
+       }
+   
+       // Misa bahasa asing, dengan badge bahasa
+       [...g.bahasa_hari_ini]
+         .sort((a, b) => a.jam.localeCompare(b.jam))
+         .forEach(o => {
+           const status = status_jadwal(o.jam, jam_sekarang_menit);
+           const label = status === 'segera' ? `${o.jam} ⚡` : o.jam;
+           const teks_badge = o.jenis === 'adorasi'
+             ? o.keterangan
+             : `Misa bahasa ${o.bahasa}${o.keterangan ? ' · ' + o.keterangan : ''}`;
+           chips_html += `
+             <div class="misa-bahasa-row">
+               <span class="jadwal-chip ${status}"><span class="chip-dot"></span>${label}</span>
+               <span class="badge-bahasa">${teks_badge}</span>
+             </div>`;
+         });
      }
    
      // Maps URL

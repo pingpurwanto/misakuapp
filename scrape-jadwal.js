@@ -2,29 +2,30 @@
 'use strict';
 
 /*
-  scrape-jadwal.js — MisaKu
+  scrape-jadwal.js — MisaKu (format jadwal per hari)
 
-  Memperbarui `jadwal_reguler` dan `terverifikasi` di data/gereja.json
-  dari jadwalmisa.id. Gereja dicocokkan lewat `id` (sama dengan id jadwalmisa.id).
+  Memperbarui di data/gereja.json:
+    - jadwal_reguler : senin … minggu, jumat_pertama  (misa Indonesia)
+    - jadwal_lain    : misa bahasa asing (Inggris / Mandarin), dengan hari & jam
+    - terverifikasi  : tanggal scrape, hanya untuk gereja yang ditemukan di jadwalmisa.id
 
-  Langkah:
-    1) node scrape-jadwal.js              -> membuat data/gereja.preview.json + laporan.txt
-                                             (data/gereja.json TIDAK diubah)
-    2) baca laporan.txt, perbaiki yang bertanda [CEK] bila perlu
-    3) node scrape-jadwal.js --terapkan   -> preview menggantikan gereja.json
-                                             (cadangan: data/gereja.json.bak)
+  Pemakaian:
+    node scrape-jadwal.js              -> data/gereja.preview.json + laporan.txt
+                                          (gereja.json TIDAK diubah)
+    node scrape-jadwal.js --terapkan   -> preview menggantikan gereja.json
+                                          (cadangan: data/gereja.json.bak)
 
   Aturan:
-    - Hanya jadwal_reguler dan terverifikasi yang berubah. Field lain tidak disentuh.
-    - Jadwal kosong di jadwalmisa.id  -> jadwal_reguler ikut dikosongkan.
-    - Judul harian yang menyebut Sabtu (mis. "Senin - Sabtu") -> jam harian juga masuk ke sabtu.
-      Judul harian tanpa hari, atau "Senin - Jumat" -> hanya masuk harian.
-    - Entri yang tidak pasti (hari tidak lengkap, misa khusus, dll.) TIDAK dimasukkan
-      dan ditulis sebagai [CEK] di laporan.
-    - Gereja yang tidak ditemukan di jadwalmisa.id tidak disentuh.
-
-  Cadangan bila internet/situs bermasalah: simpan file JSON wilayah di folder
-  sumber-jadwalmisa/ dengan nama kota-jakarta-barat.json, kota-jakarta-pusat.json, dst.
+    - Gereja yang tidak ditemukan di jadwalmisa.id: jadwal tidak diubah.
+    - Jadwal kosong di jadwalmisa.id: jadwal_reguler ikut dikosongkan.
+    - Judul "Misa Harian" polos            -> Senin–Jumat.
+    - Judul "Harian (Senin - Sabtu)" dsb.  -> hari sesuai rentang / daftar.
+    - Judul "Misa Sabtu", "Misa Minggu"    -> sabtu / minggu.
+    - Judul "Misa Jumat Pertama"           -> jumat_pertama.
+    - Misa bahasa Inggris/Mandarin         -> jadwal_lain (tidak masuk jadwal_reguler).
+    - Misa khusus (UBK, lansia, arwah, online, novena, adorasi, dst.) dilewati, ditandai [CEK].
+    - Jam dari kapel/stasi lain dilewati, ditandai [CEK], kecuali diizinkan di koreksi-manual.json.
+    - Jam bersyarat (minggu ke-…, setiap…, ND) dilewati, ditandai [CEK].
 */
 
 const fs = require('fs');
@@ -41,200 +42,317 @@ const WILAYAH = [
 const FILE_DATA = path.join('data', 'gereja.json');
 const FILE_PREVIEW = path.join('data', 'gereja.preview.json');
 const FILE_BAK = path.join('data', 'gereja.json.bak');
+const FILE_KOREKSI = 'koreksi-manual.json';
 const FILE_LAPORAN = 'laporan.txt';
 const FOLDER_SUMBER = 'sumber-jadwalmisa';
-const KATEGORI = ['harian', 'sabtu', 'minggu', 'jumat_pertama'];
 
-const HARI = {
-  senin: 1, monday: 1, selasa: 2, tuesday: 2, rabu: 3, wednesday: 3,
-  kamis: 4, thursday: 4, jumat: 5, friday: 5, sabtu: 6, saturday: 6,
+const HARI = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
+const HARI_KERJA = HARI.slice(0, 5);
+const KATEGORI = [...HARI, 'jumat_pertama'];
+const LABEL = {
+  senin: 'Senin', selasa: 'Selasa', rabu: 'Rabu', kamis: 'Kamis',
+  jumat: 'Jumat', sabtu: 'Sabtu', minggu: 'Minggu',
 };
-const NAMA_HARI = Object.keys(HARI).join('|');
-const LABEL_HARI = ['', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 
-const RE_JAM = /(?<![\d:.])([01]?\d|2[0-3])[:.]([0-5]\d)(?!\d)/;
-const RE_AWALAN_HARI = new RegExp('^\\s*(' + NAMA_HARI + ')\\b[\\s,:-]*', 'i');
-const RE_RENTANG = new RegExp(
-  '\\b(' + NAMA_HARI + ')\\s*(?:-|–|s\\/d|sampai)\\s*(' + NAMA_HARI + ')\\b'
-);
-const RE_SEMUA_HARI = new RegExp('\\b(' + NAMA_HARI + ')\\b', 'g');
+const RE_HARI_GLOBAL = /\b(senin|selasa|rabu|kamis|jumat|sabtu|minggu)\b/g;
+const RE_RENTANG = /\b(senin|selasa|rabu|kamis|jumat|sabtu|minggu)\s*(?:-|–|s\/d|sampai|hingga)\s*(senin|selasa|rabu|kamis|jumat|sabtu|minggu)\b/;
+const RE_JAM = /(?<!\d)([01]?\d|2[0-3])[:.]([0-5]\d)(?!\d)/;
 
-// Jam yang bersyarat (hanya minggu tertentu, kelompok khusus, dll.)
-const RE_KHUSUS_WAKTU =
-  /\b(ubk|abk|khusus|lansia|minggu ke|ke-?\s?\d|pertama dan|pertama &|setiap|every|\d+(?:st|nd|rd|th))\b/i;
+// Judul yang bukan misa rutin: dilewati tanpa dicatat sebagai masalah
+const RE_BUKAN_MISA = /adorasi|novena|pengakuan|jalan salib|ibadat|hora sancta|tuguran|tablo|pemberkatan|sakramen tobat/;
 
-// Judul yang bukan misa rutin mingguan/harian
-const RE_KHUSUS_JUDUL = new RegExp(
-  '(\\bubk\\b|\\babk\\b|\\blansia\\b|\\banak\\b|online|streaming|novena|adorasi|pengakuan|tobat|' +
-    'jalan salib|ibadat|rosario|arwah|kerahiman|hora sancta|ulang tahun|perkawinan|\\bhup\\b|' +
-    'pesta|perayaan|ke-?\\s?\\d|pertama dan|pertama &|' +
-    '(?:senin|selasa|rabu|kamis|jumat|sabtu|minggu)\\s+(?:pertama|kedua|ketiga|keempat|kelima|terakhir))'
-);
+// Judul misa khusus / tidak rutin tiap minggu
+const RE_KHUSUS = /\b(ubk|abk|khusus|lansia|anak|online|streaming|arwah|kerahiman|ulang tahun|perkawinan|hup|pesta|perayaan|rosario|lamentasi|tenebrae|vigili|palma|paskah|kenaikan|pentakosta|tiap|ke-?\s?\d|pertama dan|pertama &|minggu ke|sabtu pertama|jumat ketiga|jumat kedua|jumat terakhir)\b/;
 
-/* ---------------- Parser ---------------- */
+// Teks jam yang bersyarat (hanya untuk misa Indonesia; misa bahasa asing dipertahankan)
+const RE_BERSYARAT_JAM = /minggu ke|setiap|every|khusus|\bubk\b|\babk\b|lansia|pertama dan|ke-?\s?\d|\d\s*(?:dan|&)\s*\d|\bnd\b|\(nd\)|anak\b/i;
+
+/* ---------------- Helper dasar ---------------- */
+
+function kosongReguler() {
+  return Object.fromEntries(KATEGORI.map(k => [k, []]));
+}
+
+function normalisasiLama(j) {
+  // Mengubah format lama (harian/sabtu/minggu/jumat_pertama) ke format per hari
+  const out = kosongReguler();
+  if (!j || typeof j !== 'object') return out;
+  if (Array.isArray(j.harian)) HARI_KERJA.forEach(h => { out[h] = [...j.harian]; });
+  for (const k of KATEGORI) if (Array.isArray(j[k])) out[k] = [...j[k]];
+  return out;
+}
+
+function langOf(teks) {
+  const t = String(teks || '').toLowerCase();
+  if (/english|inggris/.test(t)) return 'Inggris';
+  if (/mandarin/.test(t)) return 'Mandarin';
+  return null;
+}
+
+function hariDariTeks(t) {
+  const r = t.match(RE_RENTANG);
+  if (r) {
+    const a = HARI.indexOf(r[1]);
+    const b = HARI.indexOf(r[2]);
+    return a <= b ? HARI.slice(a, b + 1) : [];
+  }
+  const out = [];
+  for (const m of t.matchAll(RE_HARI_GLOBAL)) if (!out.includes(m[1])) out.push(m[1]);
+  return out;
+}
 
 function bacaWaktu(mentah) {
   const teks = String(mentah == null ? '' : mentah).replace(/\s+/g, ' ').trim();
-  let hari = null;
-  let sisa = teks;
-  const awal = teks.match(RE_AWALAN_HARI);
-  if (awal) {
-    hari = HARI[awal[1].toLowerCase()];
-    sisa = teks.slice(awal[0].length);
-  }
-  const m = sisa.match(RE_JAM);
-  if (!m) return { teks, jam: null };
+  const m = teks.match(RE_JAM);
+  if (!m) return { teks, jam: null, awalan: '', sisa: '', hari: null };
+  const awalan = teks.slice(0, m.index).replace(/[\s\-–:(]+$/, '').trim();
+  const sisa = teks.slice(m.index + m[0].length).trim();
+  const h = awalan.toLowerCase().match(/^(senin|selasa|rabu|kamis|jumat|sabtu|minggu)\b/);
   return {
     teks,
     jam: String(m[1]).padStart(2, '0') + ':' + m[2],
-    hari,
-    polos: /^\d{1,2}[:.]\d{2}$/.test(sisa),
-    khusus: RE_KHUSUS_WAKTU.test(teks),
+    awalan,
+    sisa,
+    hari: h ? h[1] : null,
   };
 }
 
-function hariCakupan(judul) {
-  const t = judul.toLowerCase().replace(/kecuali.*$/, '');
-  const hasil = new Set();
-  const r = t.match(RE_RENTANG);
-  if (r) {
-    const a = HARI[r[1]];
-    const b = HARI[r[2]];
-    for (let d = a; d <= b; d++) hasil.add(d);
-  } else {
-    for (const m of t.matchAll(RE_SEMUA_HARI)) hasil.add(HARI[m[1]]);
-  }
-  return hasil;
-}
+/* ---------------- Klasifikasi judul ---------------- */
 
-function klasifikasi(judul) {
+function klasifikasi(judul, adaBahasa) {
   const t = judul.toLowerCase().replace(/\s+/g, ' ').trim();
-  if (/^(misa\s+)?jumat\s+pertama/.test(t)) return { kategori: 'jumat_pertama' };
-  if (!/misa|mass/.test(t)) return { lewati: 'bukan misa', info: true };
-  if (RE_KHUSUS_JUDUL.test(t.replace(/jumat pertama/g, ''))) {
+
+  if (!/misa|mass|harian|sabtu|minggu|jumat pertama/.test(t)) {
+    return { lewati: 'bukan misa', info: true };
+  }
+  if (!adaBahasa && RE_KHUSUS.test(t)) {
     return { lewati: 'misa khusus / tidak rutin tiap minggu' };
   }
-  if (/sabtu sore/.test(t)) return { kategori: 'sabtu' };
-  const adaHarian = /harian|daily/.test(t);
-  const adaSabtu = /\bsabtu\b|saturday/.test(t);
-  const adaMinggu = /\bminggu\b|sunday/.test(t);
-  if (adaHarian) return { kategori: 'harian', hari: hariCakupan(t) };
+  if (/jumat pertama/.test(t) && !/harian/.test(t)) {
+    return { kategori: 'jumat_pertama', hari: [] };
+  }
+  if (/sabtu sore|mingguan hari sabtu/.test(t)) {
+    return { kategori: 'sabtu', hari: [] };
+  }
+
+  const hari = hariDariTeks(t);
+  if (/harian|daily/.test(t)) {
+    return { kategori: 'harian', hari: hari.length ? hari : HARI_KERJA.slice() };
+  }
+
+  const adaSabtu = hari.includes('sabtu');
+  const adaMinggu = hari.includes('minggu');
   if (adaSabtu && adaMinggu) return { lewati: 'judul menyebut Sabtu dan Minggu sekaligus' };
-  if (adaSabtu) return { kategori: 'sabtu' };
-  if (adaMinggu) return { kategori: 'minggu' };
+  if (adaSabtu) return { kategori: 'sabtu', hari: [] };
+  if (adaMinggu) return { kategori: 'minggu', hari: [] };
   return { lewati: 'hari tidak dikenali' };
 }
 
-function daftarHari(arr) {
-  return arr.map((d) => LABEL_HARI[d]).join(', ');
+function hariDariKategori(k) {
+  if (k.kategori === 'harian') return k.hari;
+  if (k.kategori === 'sabtu') return ['sabtu'];
+  if (k.kategori === 'minggu') return ['minggu'];
+  if (k.kategori === 'jumat_pertama') return ['jumat'];
+  return [];
 }
 
-function prosesGereja(sumber) {
+function keteranganBahasa(w, k) {
+  let ket = w.awalan
+    .replace(/english.*|mandarin.*|misa (?:bahasa )?(?:inggris|mandarin).*/i, '')
+    .replace(/[\s\-–:(]+$/, '')
+    .trim();
+  if (HARI.includes(ket.toLowerCase())) ket = '';
+  if (!ket && k.kategori === 'jumat_pertama') ket = 'Jumat Pertama';
+  return ket;
+}
+
+/* ---------------- Proses satu gereja ---------------- */
+
+function prosesGereja(sumber, koreksi = {}) {
   const jadwal = Array.isArray(sumber.schedules) ? sumber.schedules : [];
   const catatan = [];
-  const hasil = { harian: new Set(), sabtu: new Set(), minggu: new Set(), jumat_pertama: new Set() };
+  const reguler = Object.fromEntries(KATEGORI.map(k => [k, new Set()]));
+  const lain = new Map();
 
   if (jadwal.length === 0) {
-    return { status: 'kosong', baru: { harian: [], sabtu: [], minggu: [], jumat_pertama: [] }, catatan };
+    return { status: 'kosong', reguler: kosongReguler(), lain: [], catatan };
   }
 
+  const izin = (koreksi.izinkan_judul || []).map(s => s.toLowerCase());
+  const abaikan = (koreksi.abaikan_judul || []).map(s => s.toLowerCase());
+
   for (const item of jadwal) {
-    const judul = String(item.title || '').trim();
+    const judul = String(item.title || '').replace(/\s+/g, ' ').trim();
+    const jt = judul.toLowerCase();
+    const waktu = (Array.isArray(item.time) ? item.time : []).map(t => bacaWaktu(t && t.start));
+
     if (item.is_special === true || item.status === false) {
       catatan.push(`[lewati] "${judul}" (ditandai khusus/nonaktif)`);
       continue;
     }
+    if (abaikan.some(s => jt.includes(s))) {
+      catatan.push(`[koreksi] "${judul}" diabaikan sesuai koreksi-manual.json`);
+      continue;
+    }
+    if (!/^misa\b/.test(jt) && RE_BUKAN_MISA.test(jt)) {
+      catatan.push(`[lewati] "${judul}" (bukan misa)`);
+      continue;
+    }
+    if (/kapel|stasi|auditorium/.test(jt) && !izin.some(s => jt.includes(s))) {
+      catatan.push(`[CEK] "${judul}" dari kapel/stasi lain dilewati (tambahkan ke koreksi-manual.json bila mau dimasukkan)`);
+      continue;
+    }
 
-    const k = klasifikasi(judul);
-    const waktu = (Array.isArray(item.time) ? item.time : []).map((t) => bacaWaktu(t && t.start));
-
+    if (/\bkecuali\b/i.test(jt)) {
+      catatan.push(`[CEK] "${judul}" memakai kata "kecuali": hari pengecualian tidak dikurangi otomatis, mohon dicek`);
+    }
+    const bahasaJudul = langOf(judul);
+    const k = klasifikasi(judul, !!bahasaJudul);
     if (k.lewati) {
-      const jamTerbaca = waktu.filter((w) => w.jam).map((w) => w.jam).join(', ');
+      const jamTerbaca = waktu.filter(w => w.jam).map(w => w.jam).join(', ');
       const label = k.info ? '[lewati]' : '[CEK]';
       catatan.push(`${label} "${judul}" dilewati (${k.lewati})${jamTerbaca ? ' -> ' + jamTerbaca : ''}`);
       continue;
     }
 
-    if (/english|mandarin/i.test(judul)) {
-      catatan.push(`[info] misa bahasa Inggris/Mandarin ikut dimasukkan: "${judul}"`);
-    }
-    if (/kapel|stasi|auditorium/i.test(judul)) {
-      catatan.push(`[CEK] jam dari kapel/lokasi lain ikut dimasukkan: "${judul}"`);
-    }
-
-    // jam -> himpunan hari (khusus kategori harian)
-    const petaHarian = new Map();
+    const adorasiItem = /adorasi/.test(jt);
 
     for (const w of waktu) {
       if (!w.jam) {
         catatan.push(`[CEK] jam tidak terbaca: "${w.teks}" di "${judul}"`);
         continue;
       }
-      if (w.khusus) {
+      if (/stasi|kapel|auditorium/i.test(w.teks)) {
+        catatan.push(`[CEK] jam dari stasi/kapel lain dilewati: "${w.teks}" di "${judul}"`);
+        continue;
+      }
+
+      const bahasa = langOf(w.teks) || bahasaJudul;
+
+      if (bahasa) {
+        const hariList = w.hari ? [w.hari] : hariDariKategori(k);
+        if (hariList.length === 0) {
+          catatan.push(`[CEK] hari misa ${bahasa} tidak jelas: "${w.teks}" di "${judul}"`);
+          continue;
+        }
+        const ket = keteranganBahasa(w, k);
+        for (const h of hariList) {
+          lain.set(`${h}|${w.jam}|${bahasa}|${ket}`, {
+            jenis: 'misa_bahasa', bahasa, hari: h, jam: w.jam, keterangan: ket,
+          });
+        }
+        continue;
+      }
+
+      if (/\bnd\b|\(nd\)/i.test(w.teks)) {
+        catatan.push(`[CEK] jam ND (sekolah Notre Dame, lokasi lain) dilewati: "${w.teks}" di "${judul}"`);
+        continue;
+      }
+
+      if (RE_BERSYARAT_JAM.test(w.teks)) {
         catatan.push(`[CEK] jam bersyarat dilewati: "${w.teks}" di "${judul}"`);
         continue;
       }
-      if (!w.polos && !w.hari) {
-        catatan.push(`[CEK] teks tambahan pada jam: "${w.teks}" di "${judul}" (jam tetap dimasukkan)`);
+
+      // Adorasi: jam tetap masuk jadwal reguler, dan juga dicatat sebagai badge
+      if (adorasiItem || /adorasi/i.test(w.teks)) {
+        const hariAdorasi = hariDariKategori(k);
+        const ketAdorasi = k.kategori === 'jumat_pertama' ? 'Jumat Pertama + Adorasi' : 'Adorasi';
+        for (const h of hariAdorasi) {
+          lain.set(`${h}|${w.jam}|adorasi|${ketAdorasi}`, {
+            jenis: 'adorasi', hari: h, jam: w.jam, keterangan: ketAdorasi,
+          });
+        }
       }
 
-      if (k.kategori !== 'harian') {
-        hasil[k.kategori].add(w.jam);
-        continue;
+      if (k.kategori === 'jumat_pertama') {
+        reguler.jumat_pertama.add(w.jam);
+      } else if (k.kategori === 'harian') {
+        const hariList = w.hari ? [w.hari] : k.hari;
+        hariList.forEach(h => reguler[h].add(w.jam));
+      } else {
+        reguler[k.kategori].add(w.jam);
       }
-      const cov = w.hari ? new Set([w.hari]) : new Set(k.hari);
-      const ada = petaHarian.get(w.jam) || new Set();
-      cov.forEach((d) => ada.add(d));
-      petaHarian.set(w.jam, ada);
-    }
-
-    for (const [jam, cov] of petaHarian) {
-      if (cov.size === 0) {
-        hasil.harian.add(jam); // judul tidak menyebut hari -> anggap Senin-Jumat
-        continue;
-      }
-      const hariKerja = [1, 2, 3, 4, 5].filter((d) => cov.has(d));
-      if (hariKerja.length === 5) {
-        hasil.harian.add(jam);
-      } else if (hariKerja.length > 0) {
-        catatan.push(
-          `[CEK] ${jam} di "${judul}" hanya berlaku ${daftarHari(hariKerja)} -> tidak dimasukkan ke harian`
-        );
-      }
-      if (cov.has(6)) hasil.sabtu.add(jam);
     }
   }
 
-  const baru = {};
+  const out = {};
   let total = 0;
   for (const kat of KATEGORI) {
-    baru[kat] = [...hasil[kat]].sort();
-    total += baru[kat].length;
+    out[kat] = [...reguler[kat]].sort();
+    total += out[kat].length;
   }
-  if (total === 0) return { status: 'tidak-terbaca', baru, catatan };
-  return { status: 'ok', baru, catatan };
+  const urut = (a, b) =>
+    HARI.indexOf(a.hari) - HARI.indexOf(b.hari) ||
+    a.jam.localeCompare(b.jam) ||
+    (a.bahasa || a.jenis).localeCompare(b.bahasa || b.jenis);
+  const lainArr = [...lain.values()].sort(urut);
+
+  if (total === 0 && lainArr.length === 0) {
+    return { status: 'tidak-terbaca', reguler: out, lain: lainArr, catatan };
+  }
+  return { status: 'ok', reguler: out, lain: lainArr, catatan };
 }
 
 /* ---------------- Penulisan JSON (format sama dengan file kamu) ---------------- */
 
-const arrInline = (a) => '[' + a.map((x) => JSON.stringify(x)).join(', ') + ']';
-const jadwalInline = (j) =>
-  '{ ' + KATEGORI.map((k) => `"${k}": ${arrInline(j[k] || [])}`).join(', ') + ' }';
+const arrInline = a => '[' + a.map(x => JSON.stringify(x)).join(', ') + ']';
+
+function jadwalInline(j) {
+  return '{ ' + KATEGORI.map(k => `"${k}": ${arrInline(j[k] || [])}`).join(', ') + ' }';
+}
+
+function lainBlok(lain) {
+  if (!lain.length) return '[]';
+  return '[\n' + lain.map(o => '      ' + JSON.stringify(o)).join(',\n') + '\n    ]';
+}
 
 function tulisJson(data) {
-  const blok = data.map((g) => {
+  const blok = data.map(g => {
     const baris = Object.entries(g).map(([k, v]) => {
-      const nilai = k === 'jadwal_reguler' ? jadwalInline(v) : JSON.stringify(v);
-      return `    ${JSON.stringify(k)}: ${nilai}`;
+      if (k === 'jadwal_reguler') return `    "jadwal_reguler": ${jadwalInline(v)}`;
+      if (k === 'jadwal_lain') return `    "jadwal_lain": ${lainBlok(v)}`;
+      return `    ${JSON.stringify(k)}: ${JSON.stringify(v)}`;
     });
     return `  {\n${baris.join(',\n')}\n  }`;
   });
   return `[\n${blok.join(',\n')}\n]\n`;
 }
 
+// Menyusun ulang urutan field agar jadwal_lain selalu tepat setelah jadwal_reguler
+function susun(g, reguler, lain, tanggal) {
+  const out = {};
+  for (const k of Object.keys(g)) {
+    if (k === 'jadwal_reguler') {
+      out.jadwal_reguler = reguler;
+      out.jadwal_lain = lain;
+    } else if (k === 'jadwal_lain') {
+      continue;
+    } else if (k === 'terverifikasi' && tanggal) {
+      out.terverifikasi = tanggal;
+    } else {
+      out[k] = g[k];
+    }
+  }
+  if (!('jadwal_reguler' in out)) {
+    out.jadwal_reguler = reguler;
+    out.jadwal_lain = lain;
+  }
+  if (tanggal && !('terverifikasi' in out)) out.terverifikasi = tanggal;
+  return out;
+}
+
+/* ---------------- Koreksi manual ---------------- */
+
+function bacaKoreksi() {
+  if (!fs.existsSync(FILE_KOREKSI)) return {};
+  const obj = JSON.parse(fs.readFileSync(FILE_KOREKSI, 'utf8'));
+  return Object.fromEntries(Object.entries(obj).filter(([k]) => !k.startsWith('_')));
+}
+
 /* ---------------- Pengambilan data ---------------- */
 
-const tunggu = (ms) => new Promise((r) => setTimeout(r, ms));
+const tunggu = ms => new Promise(r => setTimeout(r, ms));
 const OPSI_FETCH = () => ({
   headers: { 'User-Agent': 'Mozilla/5.0 (MisaKu jadwal updater)' },
   signal: AbortSignal.timeout(20000),
@@ -296,81 +414,92 @@ async function kumpulkanSumber() {
   return peta;
 }
 
-/* ---------------- Alur utama ---------------- */
+/* ---------------- Laporan ---------------- */
 
-const fmt = (a) => (a && a.length ? a.join(', ') : '(kosong)');
+const fmt = a => (a && a.length ? a.join(', ') : '(kosong)');
 const sama = (a, b) => JSON.stringify(a || []) === JSON.stringify(b || []);
+const fmtLain = list =>
+  !list || !list.length
+    ? '(kosong)'
+    : list.map(o => `${LABEL[o.hari]} ${o.jam} ${o.jenis === 'adorasi' ? 'Adorasi' : o.bahasa}${o.keterangan ? ' (' + o.keterangan + ')' : ''}`).join('; ');
+
+/* ---------------- Alur utama ---------------- */
 
 async function main() {
   if (process.argv.includes('--terapkan')) return terapkan();
 
   const data = JSON.parse(fs.readFileSync(FILE_DATA, 'utf8'));
+  const koreksi = bacaKoreksi();
   const sumber = await kumpulkanSumber();
   const tanggal = new Date().toLocaleDateString('id-ID', {
     day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta',
   });
 
   const ringkas = { diperbarui: 0, dikosongkan: 0, tidakBerubah: 0, tidakDitemukan: 0 };
-  const blokPerhatian = [];
-  const blokBiasa = [];
+  const perhatian = [];
+  const biasa = [];
 
-  const keluar = data.map((g) => {
+  const keluar = data.map(g => {
+    const lamaReguler = normalisasiLama(g.jadwal_reguler);
+    const lamaLain = Array.isArray(g.jadwal_lain) ? g.jadwal_lain : [];
     const src = sumber.get(g.id);
     const baris = [`[${g.id}] ${g.nama}`];
 
     if (!src) {
       ringkas.tidakDitemukan++;
-      baris.push('  Tidak ada di jadwalmisa.id -> tidak diubah');
-      blokPerhatian.push(baris.join('\n'));
-      return g;
+      baris.push('  Tidak ada di jadwalmisa.id -> jadwal tidak diubah (hanya format)');
+      perhatian.push(baris.join('\n'));
+      return susun(g, lamaReguler, lamaLain, null);
     }
 
-    const r = prosesGereja(src);
+    const r = prosesGereja(src, koreksi[String(g.id)] || {});
 
     if (r.status === 'tidak-terbaca') {
       ringkas.tidakBerubah++;
-      baris.push('  Semua entri jadwalmisa.id dilewati -> jadwal lama dipertahankan');
-      r.catatan.forEach((c) => baris.push('  ' + c));
-      blokPerhatian.push(baris.join('\n'));
-      return g;
+      baris.push('  Tidak ada entri yang terbaca -> jadwal lama dipertahankan');
+      r.catatan.forEach(c => baris.push('  ' + c));
+      perhatian.push(baris.join('\n'));
+      return susun(g, lamaReguler, lamaLain, null);
     }
 
+    const reg = r.status === 'kosong' ? kosongReguler() : r.reguler;
     if (r.status === 'kosong') {
       ringkas.dikosongkan++;
-      baris.push('  JADWAL KOSONG di jadwalmisa.id -> jadwal_reguler dikosongkan');
+      baris.push('  JADWAL KOSONG di jadwalmisa.id -> jadwal dikosongkan');
     } else {
       ringkas.diperbarui++;
     }
 
-    const lama = g.jadwal_reguler || {};
-    for (const k of KATEGORI) {
-      const tanda = sama(lama[k], r.baru[k]) ? '' : '   <== BERUBAH';
-      baris.push(`  ${k.padEnd(14)}: ${fmt(lama[k])}  ->  ${fmt(r.baru[k])}${tanda}`);
+    for (const h of KATEGORI) {
+      const tanda = sama(lamaReguler[h], reg[h]) ? '' : '   <== BERUBAH';
+      baris.push(`  ${h.padEnd(13)}: ${fmt(lamaReguler[h])}  ->  ${fmt(reg[h])}${tanda}`);
     }
-    r.catatan.forEach((c) => baris.push('  ' + c));
+    const a = fmtLain(lamaLain);
+    const b = fmtLain(r.lain);
+    baris.push(`  misa bahasa  : ${a}  ->  ${b}${a === b ? '' : '   <== BERUBAH'}`);
+    r.catatan.forEach(c => baris.push('  ' + c));
 
-    const perlu = r.status === 'kosong' || r.catatan.some((c) => c.startsWith('[CEK]'));
-    (perlu ? blokPerhatian : blokBiasa).push(baris.join('\n'));
+    const perlu = r.status === 'kosong' || r.catatan.some(c => c.startsWith('[CEK]'));
+    (perlu ? perhatian : biasa).push(baris.join('\n'));
 
-    // terverifikasi diperbarui, field lain tidak disentuh
-    return { ...g, jadwal_reguler: r.baru, terverifikasi: tanggal };
+    return susun(g, reg, r.lain, tanggal);
   });
 
   const laporan = [
     `LAPORAN SCRAPE jadwalmisa.id — ${tanggal}`,
     '',
-    `Diperbarui            : ${ringkas.diperbarui}`,
-    `Dikosongkan (sumber kosong): ${ringkas.dikosongkan}`,
+    `Diperbarui                      : ${ringkas.diperbarui}`,
+    `Dikosongkan (sumber kosong)     : ${ringkas.dikosongkan}`,
     `Tidak diubah (entri tak terbaca): ${ringkas.tidakBerubah}`,
-    `Tidak ada di jadwalmisa.id     : ${ringkas.tidakDitemukan}`,
+    `Tidak ada di jadwalmisa.id      : ${ringkas.tidakDitemukan}`,
     '',
     '=== PERLU DICEK ===',
     '',
-    blokPerhatian.join('\n\n') || '(tidak ada)',
+    perhatian.join('\n\n') || '(tidak ada)',
     '',
     '=== LAINNYA ===',
     '',
-    blokBiasa.join('\n\n') || '(tidak ada)',
+    biasa.join('\n\n') || '(tidak ada)',
     '',
   ].join('\n');
 
@@ -382,7 +511,7 @@ async function main() {
     `tidak diubah: ${ringkas.tidakBerubah}, tidak ditemukan: ${ringkas.tidakDitemukan}`);
   console.log(`Hasil   : ${FILE_PREVIEW}`);
   console.log(`Laporan : ${FILE_LAPORAN}  (baca bagian PERLU DICEK dulu)`);
-  console.log(`Kalau sudah yakin, jalankan: node scrape-jadwal.js --terapkan`);
+  console.log('Kalau sudah yakin, jalankan: node scrape-jadwal.js --terapkan');
 }
 
 function terapkan() {
@@ -396,6 +525,12 @@ function terapkan() {
     console.error('Jumlah gereja di preview berbeda dengan gereja.json. Dibatalkan.');
     process.exit(1);
   }
+  const formatOk = preview.every(g =>
+    g.jadwal_reguler && 'senin' in g.jadwal_reguler && Array.isArray(g.jadwal_lain));
+  if (!formatOk) {
+    console.error('Format preview tidak sesuai (harus per hari dan punya jadwal_lain). Dibatalkan.');
+    process.exit(1);
+  }
   fs.copyFileSync(FILE_DATA, FILE_BAK);
   fs.copyFileSync(FILE_PREVIEW, FILE_DATA);
   fs.unlinkSync(FILE_PREVIEW);
@@ -403,10 +538,10 @@ function terapkan() {
   console.log('Cek di browser, lalu hapus gereja.json.bak dan laporan.txt sebelum commit.');
 }
 
-module.exports = { klasifikasi, bacaWaktu, hariCakupan, prosesGereja, tulisJson };
+module.exports = { klasifikasi, bacaWaktu, hariDariTeks, prosesGereja, tulisJson, normalisasiLama };
 
 if (require.main === module) {
-  main().catch((e) => {
+  main().catch(e => {
     console.error('ERROR:', e.message);
     process.exit(1);
   });

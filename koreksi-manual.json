@@ -1,0 +1,7 @@
+{
+    "_petunjuk": "Kunci = id gereja (angka). izinkan_judul: judul yang mengandung teks ini tetap dipakai walau menyebut kapel/stasi. abaikan_judul: judul yang mengandung teks ini dibuang.",
+    "7": {
+      "izinkan_judul": ["Kapel Desa Putra"],
+      "abaikan_judul": ["Bahtera Kasih"]
+    }
+  }
